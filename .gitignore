@@ -1,0 +1,4 @@
+data/processed/*.csv
+data/processed/*.npz
+data/processed/embeddings.npy
+data/vector_db/
