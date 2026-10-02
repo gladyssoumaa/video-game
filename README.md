@@ -7,15 +7,18 @@ Deep evaluation done into customer reviews allowing users to ask video game rela
 The scope of the project is to analyze any customer reviews based on video games. The system should not answer any question outside the related topic. To enable this a prompt is engineered in a way that guardrails are set to limit what the LLM can answer. About 50,000 reviews were used to train the model. The process starts by data crawling from McAuley lab, it is then preprocessed(removing punctuation, html tags), chunking using recursive character splitting, embedding and finally prompting to see whether the pipeline can now handle user questions.
 
 ## Key Technical Specifications
-| Component	| Selection |
-|Topic Boundary |	Customer experiences, ratings, and product feedback for video games|
-|Source Data |	Amazon Product Reviews Dataset / UCSD McAuley Lab|
-|Vectorization	| Local TfidfVectorizer fallback (384 dimensional feature space) |
-|Vector Database	| ChromaDB (Localized persistent directory)|
-|Distance Metric |	Cosine Space (hnsw:space = cosine) |
-|Chunking Strategy |	Recursive Character Text Splitting (1,000 char size / 200 char overlap)|
-|LLM Model Target |	Google Gemini 3.5 Flash-Lite (models/gemini-3.5-flash-lite)|
-|Generation Hyperparameters	| Temperature: 0.2 | Top-P: 1.0 | Top-K Retrieval: 5 |
+
+| Component | Selection |
+| :--- | :--- |
+| **Topic Boundary** | Customer experiences, ratings, and product feedback for video games |
+| **Source Data** | Amazon Product Reviews Dataset / UCSD McAuley Lab |
+| **Vectorization** | Local `TfidfVectorizer` fallback (384 dimensional feature space) |
+| **Vector Database** | ChromaDB (Localized persistent directory) |
+| **Distance Metric** | Cosine Space (`hnsw:space = cosine`) |
+| **Chunking Strategy** | Recursive Character Text Splitting (1,000 char size / 200 char overlap) |
+| **LLM Model Target** | Google Gemini 3.5 Flash-Lite (`models/gemini-3.5-flash-lite`) |
+| **Generation Hyperparameters** | Temperature: `0.2` \| Top-P: `1.0` \| Top-K Retrieval: `5` |
+
 
 
 
